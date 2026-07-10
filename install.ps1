@@ -11,11 +11,11 @@ if (-not (Get-Command omp -ErrorAction SilentlyContinue)) {
 }
 
 # ── Marketplace ──────────────────────────────────────────────────
-Write-Host "[1/4] Registering marketplace..." -ForegroundColor Yellow
+Write-Host "[1/5] Registering marketplace..." -ForegroundColor Yellow
 omp plugin marketplace add anthropics/claude-plugins-official 2>$null
 
 # ── Plugins ──────────────────────────────────────────────────────
-Write-Host "[2/4] Installing plugins..." -ForegroundColor Yellow
+Write-Host "[2/5] Installing plugins..." -ForegroundColor Yellow
 $plugins = @(
     "security-guidance",
     "commit-commands",
@@ -37,14 +37,14 @@ foreach ($plugin in $plugins) {
 }
 
 # ── Custom skills ────────────────────────────────────────────────
-Write-Host "[3/4] Installing custom skills..." -ForegroundColor Yellow
+Write-Host "[3/5] Installing custom skills..." -ForegroundColor Yellow
 $skillsDir = "$HOME/.omp/skills/grill-me"
 New-Item -ItemType Directory -Force -Path $skillsDir | Out-Null
 Copy-Item -Force "$PSScriptRoot/skills/grill-me/SKILL.md" "$skillsDir/SKILL.md"
 Write-Host "  -> grill-me"
 
 # ── Agent config ─────────────────────────────────────────────────
-Write-Host "[4/4] Installing agent config..." -ForegroundColor Yellow
+Write-Host "[4/5] Installing agent config..." -ForegroundColor Yellow
 $agentDir = "$HOME/.omp/agent"
 New-Item -ItemType Directory -Force -Path $agentDir | Out-Null
 
@@ -65,9 +65,25 @@ if (-not (Test-Path "$agentDir/settings.json")) {
     Write-Host "  -> settings.json already exists — skipped" -ForegroundColor DarkGray
 }
 
+# ── Font (optional) ──────────────────────────────────────────────
+Write-Host "[5/5] Downloading Nerd Font..." -ForegroundColor Yellow
+$fontUrl = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf"
+$fontPath = "$env:TEMP/JetBrainsMonoNerdFont-Regular.ttf"
+try {
+    Invoke-WebRequest -Uri $fontUrl -OutFile $fontPath -ErrorAction Stop
+    Write-Host "  -> Downloaded to $fontPath"
+    Write-Host "  -> Opening font file — click 'Install' in the dialog" -ForegroundColor Green
+    Start-Process $fontPath
+} catch {
+    Write-Host "  -> Download failed (network issue). Install manually:" -ForegroundColor DarkYellow
+    Write-Host "     winget install DEVCOM.JetBrainsMonoNerdFont"
+}
+
 Write-Host ""
 Write-Host "=== Done ===" -ForegroundColor Cyan
 Write-Host "Next steps:"
-Write-Host "  1. Edit $agentDir\settings.json — set shellPath to your bash.exe"
-Write-Host "  2. For project config: copy project\APPEND_SYSTEM.md to <project>\.omp\"
-Write-Host "  3. Restart omp to load all settings"
+Write-Host "  1. Click 'Install' in the font dialog that just opened"
+Write-Host "  2. Edit $agentDir\settings.json — set shellPath to your bash.exe"
+Write-Host "  3. Switch terminal font to 'JetBrainsMono Nerd Font'"
+Write-Host "  4. For project config: copy project\APPEND_SYSTEM.md to <project>\.omp\"
+Write-Host "  5. Restart omp to load all settings"
