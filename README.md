@@ -4,8 +4,19 @@ One-command setup for Oh My Pi: plugins, agent config, custom skills, and system
 
 ## Usage (new machine)
 
+### PowerShell (Windows)
+
+```powershell
+git clone https://github.com/M1zukiri/omp-bootstrap.git $HOME/omp-bootstrap
+cd $HOME/omp-bootstrap
+.\install.ps1
+# Edit ~/.omp/agent/settings.json to set your shellPath
+```
+
+### Bash (Linux/macOS/Git Bash)
+
 ```bash
-git clone https://github.com/<your-username>/omp-bootstrap.git ~/omp-bootstrap
+git clone https://github.com/M1zukiri/omp-bootstrap.git ~/omp-bootstrap
 cd ~/omp-bootstrap
 ./install.sh
 # Edit ~/.omp/agent/settings.json to set your shellPath
@@ -13,14 +24,15 @@ cd ~/omp-bootstrap
 
 ## What it installs
 
-- **9 plugins** from the official Claude Code marketplace
+- **8 plugins** from the official Claude Code marketplace (security-guidance, commit-commands, code-review, nvidia-skills, ralph-loop, frontend-design, superpowers, playground)
 - **grill-me** custom skill
-- **Agent config** (theme, TUI, compaction)
-- **APPEND_SYSTEM.md** (DeepSeek V4 optimization + Chinese typesetting)
+- **Agent config** (theme, TUI, compaction, memory, tool policies)
+- **APPEND_SYSTEM.md** (DeepSeek V4 optimization + Chinese thinking/typesetting + task discipline)
 
 ## ⚠️ PUBLIC REPO — NO SECRETS
 
 This repository is public. Never commit:
+
 - API keys, tokens, or passwords
 - `settings.json` with real paths (use the template)
 - `.gitconfig` or proxy settings
@@ -31,12 +43,13 @@ This repository is public. Never commit:
 ```
 omp-bootstrap/
 ├── README.md
-├── install.sh                 # Bootstrap script
+├── install.sh                  # Bash bootstrap script
+├── install.ps1                 # PowerShell bootstrap script
 ├── config/
-│   ├── config.yml             # Agent config (symlinked)
-│   └── settings.template.json # Template only — fill shellPath manually
+│   ├── config.yml              # Agent config (symlinked or copied)
+│   └── settings.template.json  # Template only — fill shellPath manually
 ├── skills/
-│   └── grill-me/SKILL.md      # Custom skill
+│   └── grill-me/SKILL.md       # Custom skill
 └── project/
-    └── APPEND_SYSTEM.md       # Reference — copy to .omp/ per project
+    └── APPEND_SYSTEM.md        # Reference — copy to .omp/ per project
 ```
