@@ -40,3 +40,15 @@ When writing in Chinese:
 - **Code comments**: Chinese for Chinese-speaking teams, English for international projects. Be consistent within a project.
 - **Technical explanations**: Chinese when the audience is Chinese-speaking; English for international audiences.
 - **Established translations**: use them (机器学习, 神经网络). Emerging terms: provide English original in parentheses on first use ("链式思考（Chain of Thought）").
+
+---
+
+## Project Configuration — Public Repository
+
+This project's agent configuration is synced via a public GitHub repository: `https://github.com/M1zukiri/omp-bootstrap`. When editing configuration files that belong to this sync set, NEVER include:
+- API keys, tokens, or passwords of any kind
+- Real filesystem paths with usernames or environment details
+- Proxy credentials or internal network addresses
+- Any secret that would be damaging if exposed in a public repo
+
+The canonical sync list includes: `config.yml`, `settings.template.json`, skills, `APPEND_SYSTEM.md`, and the `install.sh` bootstrap script. Before committing to the omp-bootstrap repo, verify every file against the rule above.
