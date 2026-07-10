@@ -1,4 +1,4 @@
-symbolPreset: unicode
+symbolPreset: nerd
 theme: 
   dark: titanium
   light: light
@@ -8,6 +8,7 @@ terminal:
 tui: 
   textSizing: true
   tight: false
+  hyperlinks: always
 display: 
   showTokenUsage: true
   cacheMissMarker: true
@@ -22,3 +23,6 @@ branchSummary:
 compaction: 
   strategy: context-full
   handoffSaveToDisk: true
+statusLine: 
+  preset: full
+readLineNumbers: true
