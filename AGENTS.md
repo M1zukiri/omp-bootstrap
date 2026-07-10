@@ -1,66 +1,66 @@
 # AGENTS.md
 
-使用中文进行思考、回答和代码注释。混合语言思考会降低质量。
+始终使用中文进行思考、回答和代码注释。混合语言会降低质量。
 
-These guidelines bias toward correctness over speed. For trivial tasks, use judgment.
+以下准则以正确性优先于速度。对简单任务可用自己的判断。
 
 ---
 
-## 1. Think Before Coding
+## 1. 先思考再编码
 
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
+**不要假设。不要隐藏困惑。暴露权衡。**
 
-Before implementing:
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them — don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
+实现之前：
+- 明确陈述你的假设。如果不确定，直接问。
+- 如果存在多种理解，全部列出——不要悄悄选一个。
+- 如果有更简单的方案，说出来。必要时据理力争。
+- 如果有地方不清楚，停下。指出困惑所在。追问。
 
-## 2. Simplicity First
+## 2. 简洁优先
 
-**Minimum code that solves the problem. Nothing speculative.**
+**用最少代码解决问题。不要写投机代码。**
 
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If you write 200 lines and it could be 50, rewrite it.
+- 不添加用户未要求的功能。
+- 不为单次使用创建抽象。
+- 不添加未被请求的"灵活性"或"可配置性"。
+- 不为不可能发生的场景写错误处理。
+- 写了 200 行但 50 行就能完成，重写。
 
-Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+自问："资深工程师会觉得过度复杂吗？"如果是，简化。
 
-## 3. Surgical Changes
+## 3. 外科手术式修改
 
-**Touch only what you must. Clean up only your own mess.**
+**只碰必须碰的。只清理自己造成的混乱。**
 
-When editing existing code:
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it — don't delete it.
+修改已有代码时：
+- 不要"顺手改进"相邻代码、注释或格式。
+- 不要重构没有坏的东西。
+- 匹配现有风格，即使你习惯的做法不同。
+- 如果注意到不相关的死代码，提出来——不要删除。
 
-When your changes create orphans:
-- Remove imports/variables/functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
+当你的改动造成孤立代码时：
+- 移除被你的改动变成无用的导入/变量/函数。
+- 不要删除改动前就已存在的死代码，除非被要求。
 
-The test: Every changed line should trace directly to the user's request.
+测试标准：每一行改动都应能直接追溯到用户的要求。
 
-## 4. Goal-Driven Execution
+## 4. 目标驱动执行
 
-**Define success criteria. Loop until verified.**
+**定义成功标准。循环直到验证通过。**
 
-Transform tasks into verifiable goals:
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
+将任务转化为可验证的目标：
+- "添加验证" → "为无效输入写测试，让它们通过"
+- "修复 bug" → "写一个能复现 bug 的测试，然后让它通过"
+- "重构 X" → "确保测试在重构前后都通过"
 
-For multi-step tasks, state a brief plan:
+多步骤任务，列出简要计划：
 ```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
+1. [步骤] → 验证：[检查项]
+2. [步骤] → 验证：[检查项]
+3. [步骤] → 验证：[检查项]
 ```
 
-Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+明确的成功标准让你能独立循环推进。模糊的标准（"搞出来就行"）会不断需要澄清。
 
 ## 5. 精确引用与区分推断
 
