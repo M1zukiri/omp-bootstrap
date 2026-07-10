@@ -48,6 +48,10 @@ Write-Host "[4/5] Installing agent config..." -ForegroundColor Yellow
 $agentDir = "$HOME/.omp/agent"
 New-Item -ItemType Directory -Force -Path $agentDir | Out-Null
 
+# AGENTS.md — global behavioral rules
+Copy-Item -Force "$PSScriptRoot/AGENTS.md" "$agentDir/AGENTS.md"
+Write-Host "  -> AGENTS.md (global behavioral rules)"
+
 # config.yml — try symlink, fall back to copy
 try {
     New-Item -ItemType SymbolicLink -Force -Path "$agentDir/config.yml" -Target "$PSScriptRoot/config/config.yml" | Out-Null
@@ -85,5 +89,4 @@ Write-Host "Next steps:"
 Write-Host "  1. Click 'Install' in the font dialog that just opened"
 Write-Host "  2. Edit $agentDir\settings.json — set shellPath to your bash.exe"
 Write-Host "  3. Switch terminal font to 'JetBrainsMono Nerd Font'"
-Write-Host "  4. For project config: copy project\APPEND_SYSTEM.md to <project>\.omp\"
-Write-Host "  5. Restart omp to load all settings"
+Write-Host "  4. Restart omp to load all settings"

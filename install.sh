@@ -39,8 +39,18 @@ cp "$(dirname "$0")/skills/grill-me/SKILL.md" ~/.omp/skills/grill-me/SKILL.md
 echo "  -> grill-me"
 
 # ── Agent config ─────────────────────────────────────────────────
-echo "[4/5] Linking agent config..."
+echo "[4/5] Installing agent config..."
+mkdir -p ~/.omp/agent
+
+# AGENTS.md — global behavioral rules
+cp "$(dirname "$0")/AGENTS.md" ~/.omp/agent/AGENTS.md
+echo "  -> AGENTS.md (global behavioral rules)"
+
+# config.yml — symlink
 ln -sf "$(dirname "$0")/config/config.yml" ~/.omp/agent/config.yml
+echo "  -> config.yml (symlinked)"
+
+# settings.json — only create from template if missing
 if [ ! -f ~/.omp/agent/settings.json ]; then
     cp "$(dirname "$0")/config/settings.template.json" ~/.omp/agent/settings.json
     echo "  -> settings.json created from template — edit shellPath now"
@@ -67,4 +77,3 @@ echo "  1. Install the font (double-click $FONT_PATH if downloaded)"
 echo "  2. Edit ~/.omp/agent/settings.json — set shellPath"
 echo "  3. Switch terminal font to 'JetBrainsMono Nerd Font'"
 echo "  4. Restart omp to load all settings"
-echo "For project-level config, copy project/APPEND_SYSTEM.md to <project>/.omp/"
