@@ -46,3 +46,8 @@ checkpoint:
   enabled: true
 todo: 
   eager: always
+memory: 
+  backend: local
+autolearn: 
+  enabled: true
+includeWorkspaceTree: true
