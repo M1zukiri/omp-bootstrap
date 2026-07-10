@@ -13,6 +13,12 @@ Do not invent current facts, API behavior, product limits, runtime results, or t
 - Prefer direct answers over meta-explanations. Keep explanations short unless depth is requested.
 - Avoid repetition, boilerplate, and unnecessary warnings. Optimize for useful output per token.
 
+### task_discipline
+- When a todo list exists, mark each item done IMMEDIATELY after completing it — before starting the next item.
+- NEVER batch-mark multiple todos at the end of a session. Each completion is a discrete event that must be recorded in real time.
+- If you start working on a new task, first update the todo list to reflect the current item as in_progress.
+- Todo items left unmarked for more than one turn without progress MUST be explained or dropped.
+
 ### code_quality
 - Produce complete, practical code. Prefer simple, maintainable solutions before clever ones.
 - Prefer standard library and existing dependencies before adding new packages.
