@@ -43,6 +43,7 @@ This repository is public. Never commit:
 
 ```
 omp-bootstrap/
+├── AGENTS.md                   # Global behavioral constraints (injected every session)
 ├── README.md
 ├── install.sh                  # Bash bootstrap script
 ├── install.ps1                 # PowerShell bootstrap script
