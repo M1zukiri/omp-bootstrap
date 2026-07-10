@@ -28,6 +28,7 @@ cd ~/omp-bootstrap
 - **grill-me** custom skill
 - **Agent config** (theme, TUI, compaction, memory, tool policies)
 - **APPEND_SYSTEM.md** (DeepSeek V4 optimization + Chinese thinking/typesetting + task discipline)
+- **AGENTS.md** — global behavioral constraints injected to every session (12 sections: engineering principles, Chinese reasoning conventions, bilingual writing, operational rules)
 
 ## ⚠️ PUBLIC REPO — NO SECRETS
 
