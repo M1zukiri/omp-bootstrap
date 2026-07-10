@@ -1,0 +1,24 @@
+symbolPreset: unicode
+theme: 
+  dark: titanium
+  light: light
+setupVersion: 1
+terminal: 
+  showProgress: true
+tui: 
+  textSizing: true
+  tight: false
+display: 
+  showTokenUsage: true
+  cacheMissMarker: true
+task: 
+  showResolvedModelBadge: true
+images: 
+  blockImages: true
+contextPromotion: 
+  enabled: true
+branchSummary: 
+  enabled: true
+compaction: 
+  strategy: context-full
+  handoffSaveToDisk: true
