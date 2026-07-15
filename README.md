@@ -23,13 +23,16 @@ cd ~/omp-bootstrap
 ```
 
 - **8 plugins** from the official Claude Code marketplace (security-guidance, commit-commands, code-review, nvidia-skills, ralph-loop, frontend-design, superpowers, playground)
-- **7 custom skills**:
+- **10 skills**:
   - [storage-analyzer](https://github.com/KKKKhazix/khazix-skills) — disk space analysis with tri-color cleanup (macOS/Windows)
   - [neat-freak](https://github.com/KKKKhazix/khazix-skills) — end-of-session knowledge reconciliation (docs + CLAUDE.md + memory)
   - [pua](https://github.com/tanweai/pua) — productivity pressure system to prevent agent complacency
   - [pdf](https://github.com/anthropics/skills/tree/main/skills/pdf) — PDF generation with proper formatting (Anthropic official)
   - [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) — generate custom skills from natural language (Anthropic official)
   - grill-me — relentless interview questioning for design/plan review
+  - [docx](https://github.com/anthropics/skills/tree/main/skills/docx) — Word document generation (Anthropic official)
+  - [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) — Excel spreadsheet generation (Anthropic official)
+  - [pptx](https://github.com/anthropics/skills/tree/main/skills/pptx) — PowerPoint generation (Anthropic official)
   - [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) — distinctive UI design direction before code (Anthropic official)
 - **Agent config** (theme, TUI, compaction, memory, tool policies)
 - **AGENTS.md** — 15-section global behavioral constraints injected every session (engineering principles, Chinese reasoning/bilingual conventions, task discipline, version numbering, Git management, security rules)
@@ -73,11 +76,14 @@ omp-bootstrap/
 ├── extensions/
 │   └── pua/                    # PUA OMP extension (failure counter + /pua-* commands)
 └── skills/
+    ├── docx/SKILL.md              # Word generation (Anthropic official)
     ├── frontend-design/SKILL.md # Distinctive UI design (Anthropic official)
     ├── grill-me/SKILL.md       # Design review interview skill
     ├── neat-freak/             # Knowledge reconciliation (full dir with references)
     ├── pdf/SKILL.md            # PDF generation (Anthropic official)
+    ├── pptx/SKILL.md           # PowerPoint generation (Anthropic official)
     ├── pua/SKILL.md            # Productivity pressure system
     ├── skill-creator/SKILL.md  # Generate skills from natural language
+    ├── xlsx/SKILL.md            # Excel generation (Anthropic official)
     └── storage-analyzer/       # Disk space analysis (full dir with scripts + assets)
 ```
